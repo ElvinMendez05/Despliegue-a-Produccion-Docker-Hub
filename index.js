@@ -1,11 +1,12 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+
+const PORT = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-  res.send('Hola Mundo utilizando Express ');
+  res.send('Hola Mundo utilizando Express');
 });
 
-app.listen(port, () => {
-  console.log(`Servidor corriendo en http://localhost:${port}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Servidor corriendo en puerto ${PORT}`);
 });
