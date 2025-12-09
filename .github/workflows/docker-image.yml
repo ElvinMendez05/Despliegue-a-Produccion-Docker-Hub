@@ -1,4 +1,4 @@
-name: Build and Push Docker Image
+name: Build and Push to Docker Hub
 
 on:
   push:
@@ -20,7 +20,9 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/miapp:latest .
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/miapp:latest .
 
       - name: Push Docker image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/miapp:latest
+        run: |
+          docker push ${{ secrets.DOCKER_USERNAME }}/miapp:latest
